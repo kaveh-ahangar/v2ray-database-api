@@ -1,6 +1,7 @@
 BUILD_DIR=./build
 NFPM_CONFIG=./packaging/config
-
+build:  clean init
+	go build -o $(BUILD_DIR)/v2ray-api cmd/main.go
 clean:
 		@rm -rf $(BUILD_DIR)
 
@@ -10,5 +11,3 @@ help:  ## Display this help
 init: ## create base files and directories
 	@mkdir -p $(BUILD_DIR)
 
-build:  clean init
-	go build -o $(BUILD_DIR)/v2ray-api cmd/main.go
